@@ -10,8 +10,8 @@
   <div class="navbar bg-base-100 shadow-xl fixed top-0 z-50">
     <div class="navbar-start">
       <ul class="menu menu-horizontal px-1">
-        <li><a>Item 1</a></li>
-        <li><a>Item 3</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href='#web3'>Web3</a></li>
       </ul>
     </div>
     <div class="navbar-center">

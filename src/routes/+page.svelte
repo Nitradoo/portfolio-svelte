@@ -3,11 +3,12 @@
     import Hero from '../components/Hero.svelte';
     import Nav from '../components/Nav.svelte';
     import Work from '../components/Work.svelte';
+    import Web3 from '../components/Web3.svelte'
 </script>
 <Nav />
 <Hero />
 <Work />
-
+<Web3 />
 
 
 <style>

@@ -1,7 +1,5 @@
 <script>
     import { onMount } from 'svelte';
-    
-
 
     onMount(() => {
         console.log('mounted hero');
@@ -65,8 +63,8 @@ TxtRotate.prototype.tick = function() {
 
 <div class="flex flex-col xl:flex-row gap-8 gap-x-8 w-4/6 h-screen p-8 mx-auto beforeemoji mb-16">
     <div class="mt-16 lg:m-0 xl:m-0 slide flex max-w-prose flex-col justify-center items-center w-3/4 h-full text-primary-content z-10">
-        <h1 class="text-base-content text-5xl md:text-6xl xl:text-8xl font-medium antialiased">Hi. I'm Nitro.I'm a  <span class='txt-rotate' data-period="2000" data-rotate='[ "Webdev.", "Student.", "Trader." ]'></span></h1>
-        <p class="text-base-content text-3xl font-light antialiased">I am also interested smart contract development and everything revolving around blockchain.</p>
+        <h1 class="text-base-content text-5xl md:text-6xl xl:text-8xl font-medium antialiased">Hi. I'm Nitro. I'm a <span class='txt-rotate' data-period="2000" data-rotate='[ "Webdev.", "Student.", "Trader." ]'></span></h1>
+        <p class=" mt-8 text-base-content text-3xl font-light antialiased">I am also interested smart contract development and everything revolving around blockchain.</p>
     </div>
     <div class="max-w-prose flex items-center w-full h-full text-primary-content z-10">
         <img src="./opening.png" alt="opening" class="float max-w-full xl:max-w-3xl 2xl:max-w-4xl rounded-xl shadow-2xl h-fit shadow-2xl rounded-3xl mx-auto">
@@ -117,8 +115,8 @@ TxtRotate.prototype.tick = function() {
     color: transparent;
     opacity: .5;
     position: absolute;
-    left:200px;
-    top:100px;
+    left:15%;
+    top:80%;
     rotate: 30deg;
     animation: float 7s ease-in-out infinite;
     }
@@ -140,5 +138,5 @@ TxtRotate.prototype.tick = function() {
     animation: float 7s ease-in-out infinite;
   }
         
-    
+
 </style>
