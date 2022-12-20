@@ -1,0 +1,40 @@
+<script>
+    import { onMount } from 'svelte';
+    import Modeswitch from './Modeswitch.svelte';
+    onMount(() => {
+        console.log('mounted nav');
+    });
+
+</script>
+
+  <div class="navbar bg-base-100 shadow-xl fixed top-0 z-50">
+    <div class="navbar-start">
+      <ul class="menu menu-horizontal px-1">
+        <li><a>Item 1</a></li>
+        <li><a>Item 3</a></li>
+      </ul>
+    </div>
+    <div class="navbar-center">
+      <ul class="menu menu-horizontal px-1">
+        <li class=""><img src="twitter.svg"></li>
+      </ul>
+    </div>
+    <div class="navbar-end">
+      <Modeswitch />
+    </div>
+  </div>
+
+<style>
+  @keyframes float {
+        0% {
+            transform: translateY(-3px);
+        }
+        50% {
+            transform: translateY(-15px);
+        }
+        100% {
+            transform: translateY(-3px);
+        }
+    }
+
+</style>
