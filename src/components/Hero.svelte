@@ -134,6 +134,14 @@ TxtRotate.prototype.tick = function() {
     rotate: 70deg;
     animation: float 7s ease-in-out infinite;
   }
-        
+
+  @media (max-width: 1280px){
+    .beforeemoji::after{
+      display:none;
+    }
+    .text-5xl::before{
+      display:none;
+    }
+  }
 
 </style>

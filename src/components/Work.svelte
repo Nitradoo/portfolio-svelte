@@ -87,4 +87,10 @@
         rotate: 70deg;
         animation: float 7s ease-in-out infinite;
     }
+
+    @media(max-width:1280px){
+        .anotheremoji::after{
+            display:none;
+        }
+    }
 </style>
