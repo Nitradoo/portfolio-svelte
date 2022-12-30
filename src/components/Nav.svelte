@@ -7,7 +7,7 @@
 
 </script>
 
-  <div class="navbar bg-base-100 shadow-xl fixed top-0 z-50">
+  <div class="navbar bg-base-100 w-full shadow-xl fixed top-0 z-50">
     <div class="navbar-start">
       <ul class="menu menu-horizontal px-1">
         <li><a href="#work">Work</a></li>
@@ -16,7 +16,7 @@
     </div>
     <div class="navbar-center">
       <ul class="menu menu-horizontal px-1">
-        <li class=""><img src="twitter.svg"></li>
+        <li class=""><img src="twitter.svg" alt="landing"></li>
       </ul>
     </div>
     <div class="navbar-end">

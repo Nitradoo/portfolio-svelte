@@ -13,7 +13,7 @@
     });
 </script>
 
-<input type="checkbox" class="toggle md:toggle-md lg:toggle-lg bg-primary" checked on:click={toggle}/>
+<input type="checkbox" class="toggle bg-primary" checked on:click={toggle}/>
 
 <style>
     input{

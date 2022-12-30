@@ -5,18 +5,17 @@
     import Work from '../components/Work.svelte';
     import Web3 from '../components/Web3.svelte'
 </script>
+
 <Nav />
 <Hero />
 <Work />
 <Web3 />
 
-
 <style>
-    :global(body){
-        transition: background-color 0.4s ease-in-out;
-        overflow-x: hidden;
-    }
-    :global(html){
-        scroll-behavior: smooth;
-    }
+:global(body){
+    transition: background-color 0.4s ease-in-out;
+}
+:global(html){
+    scroll-behavior: smooth;
+}
 </style>

@@ -11,8 +11,6 @@
 	let provider = null;
 
 	let contractAddress = '0xbd784e82546e679D3d0AFB06a543a6D9788a8259';
-	
-	let amItheOwner = false;
 
 	let contract = null;
 	let allMessages = [];
@@ -20,13 +18,11 @@
 
     let noWallet;
 
-	/* Setup the contract */
 
 	async function setupContract() {
 		if (isConnected && provider) {
 			contract = new ethers.Contract(contractAddress, MessageABI, provider);
 			const contractOwner = await contract.owner();
-			amItheOwner = ethers.utils.getAddress(contractOwner) === ethers.utils.getAddress(userAddress);
 			contract.on('NewMessage', async () => {
 				balance = await provider.getBalance(userAddress);
 				await getMessages();
@@ -52,7 +48,6 @@
 			data[key] = value;
 		}
 		// perform the transaction
-		// get the signer of the transaction and a read-write instance of the contract
 		const rwContract = new ethers.Contract(contractAddress, MessageABI, provider.getSigner());
 		const transaction = await rwContract.sendMessage(data.message, data.name);
 		await transaction.wait();
@@ -78,7 +73,6 @@
 	/* Basic account setup */
 	async function setup(accounts) {
 		userAddress = accounts[0]; // update the state
-		// Get and update the ethereum provider
 		try {
 			provider = new ethers.providers.Web3Provider(window.ethereum);
 			network = await provider.getNetwork();
@@ -96,7 +90,6 @@
 
 	async function connectWallet() {
 		if (window.ethereum) {
-			// ethereum is an object injected by the wallet. Let's check if is available
 			const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' }); // use the request method to get the accounts, aka logging in to Metamask
 			if (accounts.length > 0) {
 				await setup(accounts);
@@ -108,7 +101,6 @@
 		}
 	}
 
-	// Let's avoid clicking connect every time and check if the wallet was already connected
 	onMount(async () => {
 		if (window.ethereum) {
 			const accounts = await window.ethereum.request({ method: 'eth_accounts' }); // get the accounts
@@ -120,15 +112,15 @@
 	});
 
 </script>
-<div id="web3" class="bg-base-100 rounded-3xl pb-16">
+<div id="web3" class="bg-base-100 rounded-3xl pb-16 min-w-full">
     <h2 class="text-4xl xl:text-7xl font-medium text-center mb-8">Web3</h2>
 	{#if isConnected}
 
 
-        <div class="w-screen h-auto flex flex-col">
+        <div class="w-full h-auto flex flex-col">
             <div class="card bg-base-200 w-full xl:w-1/2 bg-base-300 mx-auto">
                 <div class="card-body bg-base-200 rounded-2xl">
-                  <h2 class="card-title">Connected as: {userAddress}</h2>
+                  <h2 class="card-title :text-lg">Connected: {userAddress}</h2>
                   <p class="mb-8">Network: {network.name} (only works on goerli for now)</p>
                   {#each allMessages as item}
                   <div class="chat chat-start mb-2">
@@ -146,7 +138,7 @@
                     <form on:submit|preventDefault={sendMessage}>
                             <input type="text" class="input w-1/4 mb-2" placeholder="Nickname" name="name"/>
                             <input type="text" class="input w-3/4 mr-0" placeholder="Message" name="message"/>
-                            <button type="submit" class="btn text-white ">Send Message</button>
+                            <button disabled={sendingMessage} type="submit" class="btn text-white">{#if sendingMessage}Sending Message...{:else}Send Message{/if}</button>
                         
                     </form>
                     
